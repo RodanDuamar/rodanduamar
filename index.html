@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muhammad Rodan Duamar | Portofolio</title>
+<meta name="description" content="Portofolio: proyek, keahlian, dan kontak.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-soft:#f6f8fb;
+    --text:#14213d;
+    --muted:#5b6678;
+    --line:#e3e8ef;
+    --accent:#caa211;
+    --accent-dark:#fefefe;
+    --accent-soft:#caa211;
+    --radius:14px;
+    --shadow:0 1px 2px rgba(20,33,61,.05),0 8px 24px rgba(20,33,61,.06);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:72px}
+  body{
+    font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{width:100%;max-width:1040px;margin:0 auto;padding:0 20px}
+  section{padding:72px 0}
+  .alt{background:var(--bg-soft)}
+  h1,h2,h3{line-height:1.2;letter-spacing:-.02em}
+  h2{font-size:1.75rem;margin-bottom:8px}
+  .sub{color:var(--muted);margin-bottom:36px;max-width:560px}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--accent);letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px;display:block}
+
+  /* Navigasi */
+  header{
+    position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);
+    backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-weight:700;letter-spacing:-.02em}
+  .logo span{color:var(--accent)}
+  nav ul{display:flex;gap:26px;list-style:none}
+  nav a{font-size:.92rem;color:var(--muted);font-weight:500;transition:color .15s}
+  nav a:hover{color:var(--accent)}
+  .menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:1.1rem;cursor:pointer;color:var(--text)}
+
+  /* Tombol */
+  .btn{
+    display:inline-block;padding:12px 22px;border-radius:10px;font-weight:600;font-size:.95rem;
+    border:1px solid transparent;transition:all .15s;cursor:pointer;
+  }
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:var(--accent-dark)}
+  .btn-ghost{border-color:var(--line);background:#fff}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* Hero */
+  .hero{padding:88px 0 72px}
+  .hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center}
+  .hero h1{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:16px}
+  .hero h1 em{font-style:normal;color:var(--accent)}
+  .hero p{color:var(--muted);font-size:1.08rem;max-width:520px;margin-bottom:28px}
+  .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .avatar{
+    width:100%;max-width:300px;aspect-ratio:1;border-radius:24px;margin-left:auto;
+    background:linear-gradient(135deg,var(--accent-soft),#dfe9fb);
+    border:1px solid var(--line);box-shadow:var(--shadow);
+    display:grid;place-items:center;color:var(--accent);font-weight:700;font-size:3rem;overflow:hidden;
+  }
+  .avatar img{width:100%;height:100%;object-fit:cover}
+
+  /* Tentang */
+  .about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:40px}
+  .about p{color:var(--muted);margin-bottom:14px}
+  .facts{list-style:none;display:grid;gap:12px}
+  .facts li{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;font-size:.93rem}
+  .facts b{display:block;font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+
+  /* Proyek */
+  .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px}
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+    box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(20,33,61,.06),0 14px 32px rgba(20,33,61,.1)}
+  .thumb{aspect-ratio:16/9;background:linear-gradient(135deg,#eef3fc,#dde8fa);display:grid;place-items:center;color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:.85rem}
+  .thumb img{width:100%;height:100%;object-fit:cover}
+  .card-body{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .card h3{font-size:1.1rem}
+  .card p{color:var(--muted);font-size:.92rem}
+  .meta{font-size:.85rem;color:var(--muted)}
+  .meta b{color:var(--text);font-weight:600}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
+  .tag{font-size:.75rem;font-weight:500;background:var(--accent-soft);color:var(--accent-dark);padding:3px 10px;border-radius:999px}
+  .links{display:flex;gap:16px;font-size:.88rem;font-weight:600;padding-top:6px}
+  .links a{color:var(--accent)}
+  .links a:hover{text-decoration:underline}
+
+  /* Skill */
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .skill-box{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .skill-box h3{font-size:.95rem;margin-bottom:12px}
+
+  /* Timeline */
+  .timeline{border-left:2px solid var(--line);margin-left:6px;display:grid;gap:28px}
+  .tl-item{position:relative;padding-left:26px}
+  .tl-item::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--accent)}
+  .tl-date{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--muted)}
+  .tl-item h3{font-size:1.02rem;margin:2px 0}
+  .tl-item p{color:var(--muted);font-size:.93rem}
+
+  /* Kontak */
+  .contact{text-align:center}
+  .contact .sub{margin-left:auto;margin-right:auto}
+  .contact .cta{justify-content:center}
+
+  footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:var(--muted);font-size:.85rem}
+
+  /* Responsif */
+  @media (max-width:820px){
+    .hero-grid,.about-grid{grid-template-columns:1fr}
+    .avatar{margin:0;max-width:200px;order:-1}
+    .hero{padding:48px 0 48px}
+    section{padding:56px 0}
+    .menu-btn{display:block}
+    nav{position:absolute;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);display:none}
+    nav.open{display:block}
+    nav ul{flex-direction:column;gap:0;padding:8px 20px 14px}
+    nav li a{display:block;padding:12px 0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .card,.btn{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#top" class="logo">Rodan<span> </span>Duamar</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false">☰</button>
+    <nav id="nav" aria-label="Navigasi utama">
+      <ul>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#proyek">Proyek</a></li>
+        <li><a href="#skill">Skill</a></li>
+        <li><a href="#pengalaman">Pengalaman</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Mahasiswa Teknik Komputer</span>
+        <h1>Halo, saya <em>Muhammad Rodan Duamar</em>. Saya membangun sistem yang menghubungkan perangkat keras dan perangkat lunak.</h1>
+        <p>Mahasiswa semester 7 di Universitas Teknologi Yogyakarta dengan fokus pada bidang Pengembangan Aplikasi Web &amp; IoT. Saat ini mencari kesempatan karir di bidang Pengembangan Aplikasi dan IoT.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#proyek">Lihat Proyek</a>
+          <a class="btn btn-ghost" href="#kontak">Hubungi Saya</a>
+        </div>
+      </div>
+      <!-- Ganti dengan: <img src="foto.jpg" alt="Foto Nama Anda"> -->
+      <img class="avatar" src="foto.jpg">
+    </div>
+  </section>
+
+  <!-- TENTANG -->
+  <section id="tentang" class="alt about">
+    <div class="container">
+      <span class="eyebrow">Tentang</span>
+      <h2>Sedikit tentang saya</h2>
+      <p class="sub">Ringkas, jelas, dan relevan untuk tujuan Anda saat ini.</p>
+      <div class="about-grid">
+        <div>
+          <p>Saya mahasiswa Teknik Komputer di Universitas Teknologi Yogyakarta yang tertarik pada Pengembangan Aplikasi dan IoT. Saya terbiasa merancang, membangun, dan menguji sistem dari tahap rangkaian hingga aplikasi.</p>
+          <p>Di luar perkuliahan, saya aktif di UKM Campoer Seni. Tugas akhir saya membahas Analisis performa komunikasi data MQTT pada sistem irigasi otomatis di lahan Petani Millenial Sleman</p>
+          <p>Saya sedang mencari posisi junior di bidang [bidang target].</p>
+        </div>
+        <ul class="facts">
+          <li><b>Pendidikan</b>S1 Teknik Komputer, Universitas Teknologi Yogyakarta (2023 - sekarang)</li>
+          <li><b>IPK</b>3.81 / 4.00</li>
+          <li><b>Lokasi</b>Yogyakarta, Indonesia</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYEK -->
+  <section id="proyek">
+    <div class="container">
+      <span class="eyebrow">Proyek</span>
+      <h2>Proyek unggulan</h2>
+
+      <div class="projects">
+        <!-- Salin blok <article> ini untuk menambah proyek -->
+        <article class="card">
+          <div class="thumb"><!-- <img src="proyek1.jpg" alt="Deskripsi gambar"> -->Foto / Demo</div>
+          <div class="card-body">
+            <h3>Judul Proyek Satu</h3>
+            <p class="meta"><b>Masalah:</b> Satu kalimat tentang masalah yang diselesaikan.</p>
+            <p class="meta"><b>Solusi:</b> Ringkasan pendekatan dan hasil, sebaiknya dengan angka (mis. akurasi 92%).</p>
+            <p class="meta"><b>Peran:</b> Perancang sistem &amp; pemrograman firmware.</p>
+            <div class="tags"><span class="tag">ESP32</span><span class="tag">MQTT</span><span class="tag">C++</span></div>
+            <div class="links"><a href="#">GitHub ↗</a><a href="#">Demo ↗</a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb">Foto / Demo</div>
+          <div class="card-body">
+            <h3>Judul Proyek Dua</h3>
+            <p class="meta"><b>Masalah:</b> Satu kalimat tentang masalah yang diselesaikan.</p>
+            <p class="meta"><b>Solusi:</b> Ringkasan pendekatan dan hasil.</p>
+            <p class="meta"><b>Peran:</b> Pengembang backend.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Linux</span><span class="tag">Docker</span></div>
+            <div class="links"><a href="#">GitHub ↗</a><a href="#">Laporan ↗</a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb">Foto / Demo</div>
+          <div class="card-body">
+            <h3>Tugas Akhir / Skripsi</h3>
+            <p class="meta"><b>Masalah:</b> Topik dan tujuan penelitian secara singkat.</p>
+            <p class="meta"><b>Solusi:</b> Metode dan hasil sementara.</p>
+            <p class="meta"><b>Peran:</b> Peneliti utama.</p>
+            <div class="tags"><span class="tag">Verilog</span><span class="tag">FPGA</span></div>
+            <div class="links"><a href="#">Proposal ↗</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILL -->
+  <section id="skill" class="alt">
+    <div class="container">
+      <span class="eyebrow">Keahlian</span>
+      <h2>Skill &amp; teknologi</h2>
+      <p class="sub">Dikelompokkan agar mudah dipindai. Cantumkan hanya yang benar-benar Anda kuasai.</p>
+      <div class="skills">
+        <div class="skill-box">
+          <h3>Bahasa Pemrograman</h3>
+          <div class="tags"><span class="tag">C / C++</span><span class="tag">Python</span><span class="tag">Java</span><span class="tag">Verilog</span></div>
+        </div>
+        <div class="skill-box">
+          <h3>Perangkat Keras</h3>
+          <div class="tags"><span class="tag">Arduino</span><span class="tag">ESP32</span><span class="tag">Raspberry Pi</span><span class="tag">FPGA</span></div>
+        </div>
+        <div class="skill-box">
+          <h3>Tools &amp; Platform</h3>
+          <div class="tags"><span class="tag">Git</span><span class="tag">Linux</span><span class="tag">Docker</span><span class="tag">KiCad</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PENGALAMAN -->
+  <section id="pengalaman">
+    <div class="container">
+      <span class="eyebrow">Pengalaman</span>
+      <h2>Pengalaman &amp; prestasi</h2>
+      <p class="sub">Dari yang terbaru.</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <span class="tl-date">2026</span>
+          <h3>Android Developer di PT Petani Milenial Sleman</h3>
+          <p>Membangun dan mengembangkan aplikasi android untuk alat penyiraman air dan pupuk otomatis dengan MQTT sebagai protokol komunikasi.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-date">2025</span>
+          <h3>Android Developer pada Capstone Project</h3>
+          <p>Mengembangkan Smart Plug atau stop kontak pintar dengan kontrol melalui aplikasi mobile bersama tim beranggotakan 3 orang.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-date">2024 - 2025</span>
+          <h3>Lulusan Binar Bootcamp Android Developer 2022</h3>
+          <p>Berperan sebagai Developer dan menjalankan pengembangan aplikasi Melif.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAK -->
+  <section id="kontak" class="alt contact">
+    <div class="container">
+      <span class="eyebrow">Kontak</span>
+      <h2>Mari berbincang</h2>
+      <p class="sub">Terbuka untuk kesempatan kerja sama, kolaborasi proyek, dan diskusi seputar teknologi.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="mailto:muhammadrodan9@gmail.com">muhammadrodan9@gmail.com</a>
+        <a class="btn btn-ghost" href="https://linkedin.com/in/rodanduamar" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/RodanDuamar" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href="CV Muhammad Rodan Duamar.pdf" target="_blank" rel="noopener">Unduh CV</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">© <span id="year"></span> Muhammad Rodan Duamar.</div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const btn = document.getElementById('menuBtn');
+  const nav = document.getElementById('nav');
+  btn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  }));
+</script>
+</body>
+</html>
